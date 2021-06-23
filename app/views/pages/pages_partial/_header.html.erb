@@ -17,11 +17,19 @@
     </div>
     <div class="main-nav">
       <nav>
-        <ul class="menu">
-          <li class="item"><a href="#"><input placeholder="Email" id="Email"/></a></li>
-          <li class="item"><a href="#"><input placeholder="Password" id="Password"/></a></li>
-          <li class="item"><a href="#"><button>Login / Register</button></a></li>
-        </ul>
+        <%= form_for(:user, :url => session_path(:user)) do |f| %>
+          <ul class="menu">
+            <li class="item">
+              <%= f.text_field :username %>
+            </li>
+            <li class="item">
+              <%= f.password_field :password %>
+            </li>
+            <li class="item">
+              <%= f.submit 'Login / Register' %>
+            </li>
+          </ul>
+        <% end %>
       </nav>
     </div>
   </div>
