@@ -17,19 +17,44 @@
     </div>
     <div class="main-nav">
       <nav>
-        <%= form_for(:user, :url => session_path(:user)) do |f| %>
+        <% if current_user.present? %>
           <ul class="menu">
-            <li class="item">
-              <%= f.text_field :username %>
-            </li>
-            <li class="item">
-              <%= f.password_field :password %>
-            </li>
-            <li class="item">
-              <%= f.submit 'Login / Register' %>
-            </li>
-          </ul>
+              <li class="item">
+                Welcome <%= current_user.username %>
+              </li>
+              <li class="item">
+                <%= link_to 'Share a movie', '#', class: 'btn mgl10' %>
+              </li>
+              <li class="item">
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn mgl10' %>
+              </li>
+            </ul>
+        <% else %>
+          <%= form_for(:user, url: session_path(:user)) do |f| %>
+            <ul class="menu">
+              <li class="item">
+                <%= f.text_field :username, class: 'input-form'  %>
+              </li>
+              <li class="item">
+                <%= f.password_field :password, class: 'input-form' %>
+              </li>
+              <li class="item">
+                <%= f.submit 'Login / Register', class: 'btn' %>
+              </li>
+            </ul>
+          <% end %>
         <% end %>
+        <div class="failed-message">
+          <% flash.each do |name, msg| %>
+            <% if msg.class == Array %>
+              <% msg.each do |message| %>
+                <%= content_tag :div, message, class: "msg comma" %>
+              <% end %>
+            <% else %>
+            <%= content_tag :div, msg, class: "flash hide-me" %>
+            <% end %>
+          <% end %>
+        </div>
       </nav>
     </div>
   </div>
