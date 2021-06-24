@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
 
+  protected
+
   # From Devise module Validatable
   def email_required?
     false

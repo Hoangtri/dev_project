@@ -82,6 +82,26 @@ a {
   border-radius: 2px;
 }
 
+.w200 {
+  width: 200px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-sm {
+  font-size: 15px;
+}
+
+.mgl10 {
+  margin-left: 10px;
+}
+
+.mgr10 {
+  margin-right: 10px;
+}
+
 .input-form {
   padding: 3px 6px;
 }
@@ -101,6 +121,23 @@ a {
   .comma:not(:last-child):after {
     content: ", ";
   }
+}
+
+.bg-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-size: 14px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.like-icon {
+  background-image: url(/assets/thumb-up.png);
+}
+
+.dislike-icon {
+  background-image: url(/assets/thumb-down.png);
 }
 
 .hide-me {
