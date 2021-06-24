@@ -17,7 +17,7 @@ class ShareVideo < ApplicationRecord
 
     regexp = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})?$/
     return if url =~ regexp
-    message = 'Youtube URL is invalid'
+    message = 'is invalid'
     errors.add(:url, message)
   end
 end
