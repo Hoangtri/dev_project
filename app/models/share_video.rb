@@ -4,6 +4,7 @@ class ShareVideo < ApplicationRecord
   validates :url, presence: true
   validate :validate_for_youtube_url
 
+  belongs_to :user
 
   scope :recent, -> {order(created_at: :desc)}
 

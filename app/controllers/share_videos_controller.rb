@@ -6,7 +6,7 @@ class ShareVideosController < ApplicationController
   end
 
   def create
-    @video = ShareVideo.new(url: params['share_video']['url'])
+    @video = ShareVideo.new(user: current_user, url: params['share_video']['url'])
     if @video.save
       redirect_to root_path
     else
